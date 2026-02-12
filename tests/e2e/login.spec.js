@@ -9,11 +9,12 @@ test('deve logar com administrador', async ({ page }) => {
     
     const user = {
         email: 'admin@zombieplus.com',
-        password: 'pwd123'
+        password: 'pwd123',
+        name: 'Admin'
     }
 
     await page.login.submit(user);
-    await page.movies.isLoggedIn();
+    await page.login.isLoggedIn(user);
 });
 
 test('não deve logar senha incorreta', async ({ page }) => {
@@ -24,7 +25,7 @@ test('não deve logar senha incorreta', async ({ page }) => {
 
     await page.login.submit(user);
     const message = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
-    await page.toast.containText(message);
+    await page.popUp.haveText(message);
 });
 
 test('não deve logar com email invalido', async ({ page }) => {
@@ -74,8 +75,8 @@ test('não deve logar com usuário não registrado', async ({ page }) => {
     }
 
     await page.login.submit(user);
-    const message = 'Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
-    await page.toast.containText(message);
+    const message = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
+    await page.popUp.haveText(message);
 });
 
 

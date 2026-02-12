@@ -1,10 +1,15 @@
-import { test } from '../support';
+import { test, expect } from '../support';
 import { gerarEmailValido , gerarNomeProprio} from '../utils/utils'
+import { executeSQL } from '../support/database';
+
+test.beforeAll(async () => {
+    await executeSQL(`DELETE FROM public.leads;`)
+})
+
 
 test.beforeEach(async ({ page }) => {
-  // visit
-  await page.landing.visit();
-  await page.landing.openLeadModal();
+  await page.leads.visit();
+  await page.leads.openLeadModal();
 });
 
 test('deve cadastrar um lead na fila de espera', async ({ page }) => {
@@ -13,9 +18,9 @@ test('deve cadastrar um lead na fila de espera', async ({ page }) => {
     email: gerarEmailValido()
   }
 
-  await page.landing.submitLeadForm(lead);
-  const message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!';
-  await page.toast.containText(message);
+  await page.leads.submitLeadForm(lead);
+  const message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato.';
+  await page.popUp.haveText(message);
 });
 
 test('não deve cadastrar quando o email já existe', async ({ page, request }) => {
@@ -27,10 +32,11 @@ test('não deve cadastrar quando o email já existe', async ({ page, request }) 
   const newLead = await request.post('http://localhost:3333/leads', {
     data: lead
   })
+  expect(newLead.ok()).toBeTruthy();
 
-  await page.landing.submitLeadForm(lead);
-  const message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.';
-  await page.toast.containText(message);
+  await page.leads.submitLeadForm(lead);
+  const message = 'Verificamos que o endereço de e-mail fornecido já consta em nossa lista de espera. Isso significa que você está um passo mais perto de aproveitar nossos serviços.';
+  await page.popUp.haveText(message);
 });
 
 
@@ -40,7 +46,7 @@ test('não deve cadastrar um lead com email invalido', async ({ page }) => {
     email: 'invalidEmail'
   }
 
-  await page.landing.submitLeadForm(lead);
+  await page.leads.submitLeadForm(lead);
   await page.alert.haveText('Email incorreto');
 });
 
@@ -50,7 +56,7 @@ test('não deve cadastrar um lead quando o nome não é preenchido', async ({ pa
     email: 'teste@teste.com'
   }
 
-  await page.landing.submitLeadForm(lead);
+  await page.leads.submitLeadForm(lead);
   await page.alert.haveText('Campo obrigatório');
 });
 
@@ -60,7 +66,7 @@ test('não deve cadastrar um lead quando o email não é preenchido', async ({ p
     email: ''
   }
 
-  await page.landing.submitLeadForm(lead);
+  await page.leads.submitLeadForm(lead);
   await page.alert.haveText('Campo obrigatório');
 });
 
@@ -70,7 +76,7 @@ test('não deve cadastrar um lead com campos em branco', async ({ page }) => {
     email: ''
   }
 
-  await page.landing.submitLeadForm(lead);
+  await page.leads.submitLeadForm(lead);
   await page.alert.haveText(['Campo obrigatório', 'Campo obrigatório']);
 });
 

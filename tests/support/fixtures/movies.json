@@ -4,79 +4,57 @@
     "overview": "Um vírus mortal se espalha rapidamente pelo mundo, transformando pessoas em zumbis violentos. Um ex-investigador da ONU viaja por vários países em busca da origem da epidemia e de uma possível cura.",
     "company": "Paramount Pictures",
     "release_year": 2013,
-    "feature": false,
-    "cover": "covers/guerra_mundial_z.jpg"
+    "featured": true,
+    "cover": "covers/movies/wwz.png"
   },
-  "noite_dos_mortos_vivos": {
-    "title": "A Noite dos Mortos-Vivos",
-    "overview": "Um grupo de pessoas se refugia em uma casa de campo enquanto mortos retornam à vida e passam a atacar os vivos.",
-    "company": "Image Ten",
-    "release_year": 1968,
-    "feature": false,
-    "cover": "covers/noite_dos_mortos_vivos.jpg"
-  },
-  "despertar_dos_mortos": {
-    "title": "Despertar dos Mortos",
-    "overview": "Sobreviventes se escondem em um shopping center enquanto o mundo é tomado por uma epidemia zumbi.",
-    "company": "United Film Distribution Company",
-    "release_year": 1978,
-    "feature": false,
-    "cover": "covers/despertar_dos_mortos.jpg"
-  },
-  "exterminio": {
-    "title": "Extermínio",
-    "overview": "Após um vírus devastador escapar de um laboratório, um homem acorda de um coma em uma Londres completamente tomada por infectados violentos.",
-    "company": "Fox Searchlight Pictures",
-    "release_year": 2002,
-    "feature": false,
-    "cover": "covers/exterminio.jpg"
-  },
-  "exterminio_2": {
-    "title": "Extermínio 2",
-    "overview": "Seis meses após o surto inicial, humanos tentam reconstruir Londres, mas um novo desastre biológico ameaça a população.",
-    "company": "Fox Atomic",
-    "release_year": 2007,
-    "feature": false,
-    "cover": "covers/exterminio_2.jpg"
-  },
-  "zumbilandia": {
-    "title": "Zumbilândia",
-    "overview": "Em um mundo pós-apocalíptico dominado por zumbis, um grupo improvável de sobreviventes cruza os Estados Unidos em busca de segurança.",
-    "company": "Columbia Pictures",
-    "release_year": 2009,
-    "feature": false,
-    "cover": "covers/zumbilandia.jpg"
-  },
-  "resident_evil": {
+  "duplicate": {
     "title": "Resident Evil",
     "overview": "Um vírus mortal escapa de um laboratório subterrâneo e transforma pessoas em zumbis, enquanto uma equipe tenta conter a infecção.",
-    "company": "Screen Gems",
+    "company": "Sony Pictures",
     "release_year": 2002,
-    "feature": false,
-    "cover": "covers/resident_evil.jpg"
+    "featured": false,
+    "cover": "/covers/movies/resident-evil.jpg"
   },
-  "madrugada_dos_mortos": {
-    "title": "Madrugada dos Mortos",
-    "overview": "Uma enfermeira e um grupo de sobreviventes se abrigam em um shopping center para fugir de uma infestação zumbi.",
-    "company": "Universal Pictures",
-    "release_year": 2004,
-    "feature": false,
-    "cover": "covers/madrugada_dos_mortos.jpg"
+  "to_remove": {
+    "title": "A Noite dos Mortos-Vivos",
+    "overview": "Um grupo de pessoas se refugia em uma casa de campo enquanto mortos retornam à vida e passam a atacar os vivos.",
+    "company": "Sony Pictures",
+    "release_year": 1970,
+    "featured": false,
+    "cover": "/covers/movies/mortos-vivos.jpg"
   },
-  "invasao_zumbi": {
-    "title": "Invasão Zumbi",
-    "overview": "Durante uma viagem de trem, passageiros precisam lutar pela sobrevivência quando um vírus zumbi se espalha rapidamente pela Coreia do Sul.",
-    "company": "Next Entertainment World",
-    "release_year": 2016,
-    "feature": false,
-    "cover": "covers/invasao_zumbi.jpg"
-  },
-  "todo_mundo_quase_morto": {
-    "title": "Todo Mundo Quase Morto",
-    "overview": "Um homem comum tenta sobreviver a um apocalipse zumbi em Londres enquanto tenta salvar seus amigos e sua família.",
-    "company": "Universal Pictures",
-    "release_year": 2004,
-    "feature": false,
-    "cover": "covers/todo_mundo_quase_morto.jpg"
+  "search": {
+    "input": "zumbi",
+    "outputs": [
+      "Zumbilândia",
+      "Invasão Zumbi",
+      "Meu namorado é um Zumbi"
+    ],
+    "data": [
+      {
+        "title": "Zumbilândia",
+        "overview": "Em um mundo pós-apocalíptico dominado por zumbis, um grupo improvável de sobreviventes cruza os Estados Unidos em busca de segurança.",
+        "company": "Columbia Pictures",
+        "release_year": 2009,
+        "featured": false,
+        "cover": "/covers/movies/zumbilandia.jpg"
+      },
+      {
+        "title": "Invasão Zumbi",
+        "overview": "Durante uma viagem de trem, passageiros precisam lutar pela sobrevivência quando um vírus zumbi se espalha rapidamente pela Coreia do Sul.",
+        "company": "Netflix",
+        "release_year": 2016,
+        "featured": false,
+        "cover": "/covers/movies/opz.jpg"
+      },
+      {
+        "title": "Meu namorado é um Zumbi",
+        "overview": "Em um mundo pós-apocalíptico, um jovem se apaixona por um zumbi",
+        "company": "Lionsgate Films",
+        "release_year": 2013,
+        "featured": false,
+        "cover": "/covers/movies/warm-bodies.jpg"
+      }
+    ]
   }
 }

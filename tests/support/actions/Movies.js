@@ -1,18 +1,15 @@
 import { expect } from '@playwright/test';
+const { GoForm, Submit } = require('./Components');
 
-export class MoviesPage {
+export class Movies {
     constructor(page) {
         this.page = page;
-    }
-
-    async isLoggedIn() {
-        //await this.page.waitForLoadState('networkidle')
-        await expect(this.page).toHaveURL(/.*\/admin\/movies/);
+        this.goForm = new GoForm(page)
+        this.submit = new Submit(page)
     }
 
     async create(movie) {
-        await this.page.locator('a[href$="register"]').click();
-        await expect(this.page.getByRole('heading', 'Cadastrar novo Filme')).toBeVisible();
+        this.goForm.do();
         await this.page.getByLabel('Titulo do filme').fill(movie.title);
         await this.page.getByLabel('Sinopse').fill(movie.overview);
         await this.page.locator('#select_company_id .react-select__indicators').click();
@@ -25,6 +22,14 @@ export class MoviesPage {
             .filter({ hasText: movie.release_year })
             .click();
 
-        await this.page.getByRole('button', {name: 'Cadastrar'}).click();
+        await this.page.locator('input[name=cover]')
+            .setInputFiles(`tests/support/fixtures/${movie.cover}`);
+
+        if (movie.featured) {
+            await this.page.locator('.featured .react-switch').click()
+        }
+
+        this.submit.do();
     }
+
 }
